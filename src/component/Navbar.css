@@ -1,0 +1,11 @@
+.navbar-container {
+    font-family: 'Oxygen', sans-serif;
+    font-size: 24px;
+    background: RGB(135, 206, 235);
+    display: flex;
+    flex-direction: row;
+    height: 120px;
+    list-style: none;
+    justify-content: space-around;
+    align-items: center;
+}
