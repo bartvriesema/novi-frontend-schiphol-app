@@ -6,8 +6,12 @@ const cors = require('cors');
 require('dotenv').config();
 
 app.use(cors({
-    origin: '*'
+    origin: `${process.env.REACT_APP_API_CORS_ALLOWED}`
 }))
+
+app.get('/', (req, res) => {
+    res.send('Proxy server running');
+})
 
 app.get(':endpoint([\\/\\w\\.-]*)', (req, res) => {
 
@@ -27,7 +31,11 @@ app.get(':endpoint([\\/\\w\\.-]*)', (req, res) => {
             "ResourceVersion": "v4",
         }, params: params
     }).then(response => {
-        res.json(response.data);
+        // Both the data and headers contain information that needs to be returned
+        const flights = response.data;
+        const headers = response.headers; //The headers contain information about the next and previous page
+        const data = {...flights, ...headers};
+        res.json(data);
     }).catch(error => {
         res.json(error);
     })

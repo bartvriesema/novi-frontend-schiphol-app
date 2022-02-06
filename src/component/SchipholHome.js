@@ -3,34 +3,75 @@ import axios from "axios";
 import './SchipholHome.css';
 
 function SchipholHome(props) {
-    const [flightData, setFlightData] = useState();
+    const [flightData, setFlightData] = useState([]);
 
-    async function getData() {
+    async function getFlightData(flightDataUrl) {
+        const response = await getData(flightDataUrl);
+        const flights = response.flights;
+        const nextPageUrl = getNextPageUrl(getLinks(response.link));
+
+        if (nextPageUrl) {
+            return flights.concat(await getFlightData(nextPageUrl));
+        } else {
+            return flights;
+        }
+    }
+
+    async function getData(url) {
         try {
-            //Proxy server nodig, bijv. Express
-            const result = await axios.get('http://localhost:5000/flights?includedelays=false&page=0&sort=%2BscheduleTime', {
-                "headers": {
-                    "Content-Type": "application/json",
-                    "Accept": "application/json",
-                    "app_id": `${process.env.REACT_APP_API_ID}`,
-                    "app_key": `${process.env.REACT_APP_API_KEY}`,
-                    "ResourceVersion": "v4",
-                }
-            })
-            console.log(result);
+            const result = await axios.get(url);
+            return result.data;
         } catch (e) {
-            console.log(e);
+            console.error(e);
+        }
+    }
+
+    function getLinks(linkInformation) {
+        const pagination = [];
+        const links = linkInformation.split(",");
+
+        links.forEach((pageLink) => {
+            const linkElement = pageLink.split(";");
+            const url = linkElement[0]
+                .replace(/[\s<>]/g, "")
+                .replace("https://api.schiphol.nl:443/public-flights/", "http://localhost:5000/");
+            const pageType = linkElement[1].slice(linkElement[1].indexOf("\"") + 1, linkElement[1].lastIndexOf("\""));
+            pagination.push({type: pageType, url: url});
+        });
+
+        return pagination;
+    }
+
+    function getNextPageUrl(allLinks) {
+        const nextPageUrl = allLinks.find(key => key.type === 'next');
+
+        if (nextPageUrl) {
+            return nextPageUrl.url;
+        } else {
+            const lastPageUrl = allLinks.find(key => key.type === 'last');
+            if (lastPageUrl) {
+                return lastPageUrl.url;
+            } else {
+                return null;
+            }
         }
     }
 
     useEffect(() => {
-        getData();
-    })
+        const flightInformation = getFlightData('http://localhost:5000/flights?includedelays=false&page=0&sort=%2BscheduleTime&fromDateTime=2022-02-06T12%3A00%3A00&toDateTime=2022-02-06T13%3A00%3A00&searchDateTimeField=scheduleDateTime')
+            .then(response => setFlightData(response))
+            .catch(e => console.error(e));
+    }, []);
 
-
-    return (<div>
-        SchipholHome component
-    </div>);
+    return (<>
+        {flightData && <div>
+            SchipholHome component
+            <p>Number of flights: {flightData.length}</p>
+            <ul>{flightData.map(flight => {
+                return <li key={flight.id}>{flight.flightName} - {flight.prefixICAO} - {flight.flightDirection}</li>
+            })}</ul>
+        </div>}
+    </>);
 }
 
 export default SchipholHome;
