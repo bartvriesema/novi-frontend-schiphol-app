@@ -1,0 +1,19 @@
+.weather-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background: aqua;
+  border-radius: 10px;
+  min-width: 150px;
+  min-height: 50px;
+  padding: 10px;
+}
+
+.weather-list {
+  list-style: none;
+}
+
+.weather-icon {
+
+}

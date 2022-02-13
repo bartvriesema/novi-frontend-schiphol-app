@@ -1,11 +1,12 @@
 import React from "react";
 import "./Homepage.css";
 import Flights from "../component/Flights";
+import Weather from "../component/Weather";
 
 function Homepage(props) {
   return (
     <div className="homepage-container">
-      <h1>Dit is de Homepage</h1>
+      <Weather />
       <Flights />
     </div>
   );

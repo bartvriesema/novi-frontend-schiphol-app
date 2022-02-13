@@ -7,7 +7,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 function FlightsChart(props) {
   return (
-    <div class="chart">
+    <div className="chart">
       <p>Arrivals total: {props.arrivals}</p>
       <p>Departures total: {props.departures}</p>
       <Pie
@@ -27,7 +27,6 @@ function FlightsChart(props) {
           ],
         }}
       />
-      ;
     </div>
   );
 }
