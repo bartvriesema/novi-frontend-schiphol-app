@@ -1,25 +1,10 @@
 function toDateTimeString(dateTime, addHours) {
-  let month;
-  let day;
-
-  if (dateTime.getMonth() + 1 < 10) {
-    month = "0" + dateTime.getMonth();
-  } else {
-    month = dateTime.getMonth();
-  }
-
-  if (dateTime.getDate() < 10) {
-    day = "0" + dateTime.getDate();
-  } else {
-    day = dateTime.getDate();
-  }
-
   return (
     dateTime.getFullYear() +
     "-" +
-    month +
+    (dateTime.getMonth() + 1).toString().padStart(2, "0") +
     "-" +
-    day +
+    dateTime.getDate().toString().padStart(2, "0") +
     "T" +
     (dateTime.getHours() + addHours) +
     ":00:00"

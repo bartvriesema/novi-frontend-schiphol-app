@@ -12,6 +12,12 @@
 
 .weather-list {
   list-style: none;
+  padding: 5px;
+}
+
+.weather-header {
+  font-family: "Kite One", sans-serif;
+  font-size: 18px;
 }
 
 .weather-icon {
