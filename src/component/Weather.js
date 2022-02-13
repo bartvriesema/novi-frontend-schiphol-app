@@ -22,7 +22,11 @@ function Weather(props) {
           <h2>Current weather conditions</h2>
           <ul className="weather-list">
             <li>Temperature: {kelvinToCelsius(weatherData.main.temp)}&deg;C</li>
-            <li>Visibility: {new Intl.NumberFormat('nl-NL').format(weatherData.visibility)} meter</li>
+            <li>
+              Visibility:{" "}
+              {new Intl.NumberFormat("nl-NL").format(weatherData.visibility)}{" "}
+              meter
+            </li>
             <li>Wind speed: {weatherData.wind.speed} m/s</li>
             <li>Wind direction: {weatherData.wind.deg}&deg;</li>
           </ul>

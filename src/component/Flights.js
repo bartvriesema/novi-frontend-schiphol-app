@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./Flights.css";
 import FlightsChart from "./FlightsChart";
+import toDateTimeString from "../helpers/toDateTimeString";
 
 function Flights(props) {
   const [flightData, setFlightData] = useState([]);
@@ -77,24 +78,8 @@ function Flights(props) {
   }
 
   useEffect(() => {
-    const startDateTime =
-      currentDateTime.getFullYear() +
-      "-0" +
-      (currentDateTime.getMonth() + 1) +
-      "-" +
-      currentDateTime.getDate() +
-      "T" +
-      currentDateTime.getHours() +
-      ":00:00";
-    const endDateTime =
-      currentDateTime.getFullYear() +
-      "-0" +
-      (currentDateTime.getMonth() + 1) +
-      "-" +
-      currentDateTime.getDate() +
-      "T" +
-      (currentDateTime.getHours() + 1) +
-      ":00:00";
+    const startDateTime = toDateTimeString(currentDateTime, 0);
+    const endDateTime = toDateTimeString(currentDateTime, 4);
     getFlightData(
       `http://localhost:5000/flights?includedelays=false&page=0&sort=%2BscheduleTime&fromDateTime=${startDateTime}&toDateTime=${endDateTime}&searchDateTimeField=scheduleDateTime`
     )
