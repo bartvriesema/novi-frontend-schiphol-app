@@ -33,7 +33,7 @@ app.get(':endpoint([\\/\\w\\.-]*)', (req, res) => {
     }).then(response => {
         // Both the data and headers contain information that needs to be returned
         const flights = response.data;
-        const headers = response.headers; //The headers contain information about the next and previous page
+        const headers = response.headers; //The header contains information about the next and previous page
         const data = {...flights, ...headers};
         res.json(data);
     }).catch(error => {
