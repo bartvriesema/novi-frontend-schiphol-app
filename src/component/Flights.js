@@ -79,7 +79,7 @@ function Flights(props) {
 
   useEffect(() => {
     const startDateTime = toDateTimeString(currentDateTime, 0);
-    const endDateTime = toDateTimeString(currentDateTime, 4);
+    const endDateTime = toDateTimeString(currentDateTime, 1);
     getFlightData(
       `http://localhost:5000/flights?includedelays=false&page=0&sort=%2BscheduleTime&fromDateTime=${startDateTime}&toDateTime=${endDateTime}&searchDateTimeField=scheduleDateTime`
     )

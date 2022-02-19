@@ -13,6 +13,10 @@
 .weather-list {
   list-style: none;
   padding: 5px;
+  font-size: 1em;
+}
+.weather-list li {
+  padding: 5px;
 }
 
 .weather-header {
@@ -21,4 +25,6 @@
 }
 
 .weather-icon {
+  margin-right: auto;
+  margin-left: auto;
 }

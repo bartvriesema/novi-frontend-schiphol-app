@@ -2,6 +2,7 @@ import React from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 import airplaneIcon from "../assets/airplane-logo.svg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Navbar(props) {
   return (
@@ -13,7 +14,9 @@ function Navbar(props) {
         </li>
       </Link>
       <Link to="/login">
-        <li className="navbar-button">Login</li>
+        <li className="navbar-button">
+          <FontAwesomeIcon icon="fa-solid fa-arrow-right-to-bracket" /> Login
+        </li>
       </Link>
     </ul>
   );
