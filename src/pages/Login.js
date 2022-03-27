@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
 import "./Login.css";
 import Weather from "../component/Weather";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,11 +8,15 @@ function Login(props) {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
   const [showPassword, setShowPassword] = useState(false);
+  const { handleSubmit } = useForm();
 
+  function onFormSubmit(data) {
+    console.log(data);
+  }
   return (
     <div className="login-page-container">
       <Weather />
-      <form className="form-container">
+      <form className="form-container" onSubmit={handleSubmit(onFormSubmit)}>
         <label htmlFor="username">
           User name:{" "}
           <input

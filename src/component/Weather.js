@@ -13,8 +13,14 @@ function Weather(props) {
     setWeatherData(weather.data);
   }
 
+  async function testBacked() {
+   await axios.get("http://localhost:5000/backend/test");
+
+  }
+
   useEffect(() => {
     getWeather();
+    testBacked();
   }, []);
 
   return (

@@ -28,6 +28,28 @@ app.get("/weather", (req, res) => {
     });
 });
 
+app.get("/backend/test", (req, res) => {
+  axios
+    .get("https://frontend-educational-backend.herokuapp.com/api/test/all")
+    .then((response) => {
+      res.send(response.data);
+    })
+    .catch((error) => {
+      res.json(error);
+    });
+});
+
+app.get("/novi/:endpoint([\\/\\w\\.-]*)", (req, res) => {
+  axios
+      .get("https://frontend-educational-backend.herokuapp.com/api/test/all")
+      .then((response) => {
+        res.send(response.data);
+      })
+      .catch((error) => {
+        res.json(error);
+      });
+});
+
 app.get(":endpoint([\\/\\w\\.-]*)", (req, res) => {
   let endpoint = `${process.env.REACT_APP_API_BASE_URL}` + req.params.endpoint;
   let params = {};
