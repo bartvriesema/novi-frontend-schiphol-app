@@ -13,6 +13,11 @@ function Navbar(props) {
           Home
         </li>
       </Link>
+      <Link to="/flights">
+        <li className="navbar-button">
+          <FontAwesomeIcon icon="fa-solid fa-plane" /> Flights
+        </li>
+      </Link>
       <Link to="/login">
         <li className="navbar-button">
           <FontAwesomeIcon icon="fa-solid fa-arrow-right-to-bracket" /> Login

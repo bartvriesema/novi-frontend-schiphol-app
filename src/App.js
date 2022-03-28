@@ -18,6 +18,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="login" element={<Login />} />
+          {/* <Route path="flights" element={<Flights />} /> */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

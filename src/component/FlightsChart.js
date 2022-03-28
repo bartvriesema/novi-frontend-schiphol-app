@@ -2,14 +2,21 @@ import React from "react";
 import "./FlightsChart.css";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "react-chartjs-2";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 function FlightsChart(props) {
   return (
     <div className="chart">
-      <p>Arrivals total: {props.arrivals}</p>
-      <p>Departures total: {props.departures}</p>
+      <p>
+        <FontAwesomeIcon icon="fa-solid fa-plane-arrival" />
+        Arrivals total: {props.arrivals}
+      </p>
+      <p>
+        <FontAwesomeIcon icon="fa-solid fa-plane-departure" />
+        Departures total: {props.departures}
+      </p>
       <Pie
         data={{
           labels: ["Arrivals", "Departures"],

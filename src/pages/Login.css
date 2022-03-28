@@ -1,11 +1,25 @@
 .login-page-container {
-    display: flex;
-    flex-direction: row;
-    column-gap: 40px;
+  display: flex;
+  flex-direction: row;
+  column-gap: 40px;
 }
 
 .form-container {
-    display: flex;
-    flex-direction: column;
-    margin: 20px;
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 2;
+}
+
+.login-field {
+  font-size: 24px;
+  padding: 5px;
+}
+
+.login-button {
+  font-size: 24px;
+  padding: 5px;
+  margin: 10px;
 }

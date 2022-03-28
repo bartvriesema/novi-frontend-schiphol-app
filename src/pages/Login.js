@@ -5,19 +5,19 @@ import Weather from "../component/Weather";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Login(props) {
-  const [username, setUsername] = useState();
-  const [password, setPassword] = useState();
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const { handleSubmit } = useForm();
 
-  function onFormSubmit(data) {
+  function onSubmit(data) {
     console.log(data);
   }
   return (
     <div className="login-page-container">
       <Weather />
-      <form className="form-container" onSubmit={handleSubmit(onFormSubmit)}>
-        <label htmlFor="username">
+      <form className="form-container" onSubmit={handleSubmit(onSubmit)}>
+        <label htmlFor="username" className="login-field">
           User name:{" "}
           <input
             type="text"
@@ -27,7 +27,7 @@ function Login(props) {
             onChange={(e) => setUsername(e.target.value)}
           />
         </label>
-        <label htmlFor="password">
+        <label htmlFor="password" className="login-field">
           Password:{" "}
           <input
             type={showPassword ? "text" : "password"}
@@ -48,7 +48,9 @@ function Login(props) {
             )}
           </i>
         </label>
-        <button type="submit">Login</button>
+        <button type="submit" className="login-button">
+          Login
+        </button>
       </form>
     </div>
   );
