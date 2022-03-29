@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import "./Login.css";
+import "./LoginPage.css";
 import Weather from "../component/Weather";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 

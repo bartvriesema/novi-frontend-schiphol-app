@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
+import toDateTimeString from "../helpers/toDateTimeString";
 import "./Flights.css";
 import FlightsChart from "./FlightsChart";
-import toDateTimeString from "../helpers/toDateTimeString";
 
 function Flights(props) {
   const [flightData, setFlightData] = useState([]);
