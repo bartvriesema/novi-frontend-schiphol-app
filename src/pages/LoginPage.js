@@ -1,4 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import axios from "axios";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import Weather from "../component/Weather";
@@ -10,7 +11,36 @@ function Login(props) {
 
   function onFormSubmit(data) {
     console.log(data);
+    loginUser(data);
   }
+
+  function loginUser(loginData) {
+
+    let headersList = {
+      Accept: "*/*",
+      "Content-Type": "application/json",
+    };
+
+    let reqOptions = {
+      url: "https://frontend-educational-backend.herokuapp.com/api/auth/signin",
+      method: "POST",
+      headers: headersList,
+      data: loginData,
+    };
+
+    axios
+      .request(reqOptions)
+      .then((response) => {
+        localStorage.setItem('token', response.data.accessToken);
+        console.log(response.data);
+        // Forward user to logged in page
+      })
+      .catch((error) => {
+        console.log(error.request);
+        // Catch when error. Show message to user
+      });
+  }
+
   return (
     <div className="login-page-container">
       <Weather />
