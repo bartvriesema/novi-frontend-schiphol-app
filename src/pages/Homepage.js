@@ -1,7 +1,7 @@
 import React from "react";
-import "./Homepage.css";
 import Flights from "../component/Flights";
 import Weather from "../component/Weather";
+import "./Homepage.css";
 
 function Homepage(props) {
   return (

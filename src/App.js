@@ -1,13 +1,13 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { far } from "@fortawesome/free-regular-svg-icons";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Navbar from "./component/Navbar";
+import FlightsPage from "./pages/FlightsPage";
 import Homepage from "./pages/Homepage";
 import LoginPage from "./pages/LoginPage";
-import FlightsPage from "./pages/FlightsPage";
 import NotFoundPage from "./pages/NotFoundPage";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { fas } from "@fortawesome/free-solid-svg-icons";
-import { far } from "@fortawesome/free-regular-svg-icons";
 
 library.add(fas, far);
 

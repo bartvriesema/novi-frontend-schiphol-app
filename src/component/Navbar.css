@@ -1,7 +1,7 @@
 .navbar-container {
   font-family: "Oxygen", sans-serif;
   font-size: 24px;
-  background-color: RGBA(135, 206, 235, 50%);
+  background-color: RGBA(32, 129, 195, 1);
   border-radius: 20px;
   display: flex;
   flex-direction: row;
@@ -14,7 +14,8 @@
 }
 
 .navbar-button {
-  background: RGBA(149, 142, 228, 50%);
+  background: RGBA(99, 210, 255, 0.3);
+  color: RGBA(11, 10, 7, 1);
   border-radius: 20px;
   padding: 10px 10px 10px 10px;
   display: flex;

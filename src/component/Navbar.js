@@ -1,8 +1,8 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import "./Navbar.css";
 import { Link } from "react-router-dom";
 import airplaneIcon from "../assets/airplane-logo.svg";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "./Navbar.css";
 
 function Navbar(props) {
   return (

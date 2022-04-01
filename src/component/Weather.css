@@ -1,11 +1,13 @@
 .weather-container {
   display: flex;
+  color: rgba(11, 10, 7, 1);
+  background-color: rgba(99, 210, 255, 0.1);
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  background: aqua;
+  flex-basis: auto;
   border-radius: 10px;
-  min-width: 150px;
+  min-width: 200px;
   min-height: 50px;
   padding: 10px;
 }

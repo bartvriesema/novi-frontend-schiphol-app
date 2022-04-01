@@ -1,8 +1,8 @@
-import React from "react";
-import "./FlightsChart.css";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-import { Pie } from "react-chartjs-2";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { ArcElement, Chart as ChartJS, Legend, Tooltip } from "chart.js";
+import React from "react";
+import { Pie } from "react-chartjs-2";
+import "./FlightsChart.css";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -25,10 +25,10 @@ function FlightsChart(props) {
               label: "# of Flights",
               data: [props.arrivals, props.departures],
               backgroundColor: [
-                "rgba(25, 149, 173, 0.2)",
-                "rgba(161,214,226, 0.2)",
+                "rgba(99, 210, 255, 0.8)",
+                "rgba(32, 129, 195, 0.8)",
               ],
-              borderColor: ["rgba(25, 149, 173, 1)", "rgba(161,214,226,1)"],
+              borderColor: ["rgba(99, 210, 255, 1)", "rgba(32, 129, 195, 1)"],
               borderWidth: 1,
             },
           ],

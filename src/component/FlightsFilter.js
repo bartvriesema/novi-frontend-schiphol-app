@@ -5,8 +5,6 @@ function FlightsFilter(props) {
   return (
     <div className="flightsfilter-container">
       <h1>Flights filter</h1>
-    
-
     </div>
   );
 }

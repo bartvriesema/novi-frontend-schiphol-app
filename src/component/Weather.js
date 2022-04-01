@@ -13,14 +13,14 @@ function Weather(props) {
     setWeatherData(weather.data);
   }
 
-  async function testBacked() {
-   await axios.get("http://localhost:5000/backend/test");
+  async function testBackend() {
+   await axios.get("http://localhost:5000/novi/test/all");
 
   }
 
   useEffect(() => {
     getWeather();
-    testBacked();
+    testBackend();
   }, []);
 
   return (

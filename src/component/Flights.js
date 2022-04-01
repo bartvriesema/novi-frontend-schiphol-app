@@ -41,7 +41,7 @@ function Flights(props) {
         .replace(/[\s<>]/g, "")
         .replace(
           "https://api.schiphol.nl:443/public-flights/",
-          "http://localhost:5000/"
+          "http://localhost:5000/schiphol/"
         );
       const pageType = linkElement[1].slice(
         linkElement[1].indexOf('"') + 1,
@@ -81,7 +81,7 @@ function Flights(props) {
     const startDateTime = toDateTimeString(currentDateTime, 0);
     const endDateTime = toDateTimeString(currentDateTime, 1);
     getFlightData(
-      `http://localhost:5000/flights?includedelays=false&page=0&sort=%2BscheduleTime&fromDateTime=${startDateTime}&toDateTime=${endDateTime}&searchDateTimeField=scheduleDateTime`
+      `http://localhost:5000/schiphol/flights?includedelays=false&page=0&sort=%2BscheduleTime&fromDateTime=${startDateTime}&toDateTime=${endDateTime}&searchDateTimeField=scheduleDateTime`
     )
       .then((response) => setFlightData(response))
       .catch((e) => console.error(e))
@@ -90,8 +90,8 @@ function Flights(props) {
 
   return (
     <>
-      {arrivals && (
-        <div>
+      {(arrivals || departures) && (
+        <div className="flights-container">
           SchipholHome component
           <FlightsChart
             arrivals={
