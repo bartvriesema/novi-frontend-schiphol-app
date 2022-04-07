@@ -31,7 +31,6 @@ app.get("/weather", (req, res) => {
 app.get("/novi/:endpoint([\\/\\w\\.-]*)", (req, res) => {
   let endpoint =
     `${process.env.REACT_APP_NOVI_BACKEND_API_BASE_URL}` + req.params.endpoint;
-  console.log(req.headers);
 
   axios
     .get(endpoint)
@@ -47,9 +46,13 @@ app.get("/schiphol/:endpoint([\\/\\w\\.-]*)", (req, res) => {
   let endpoint = `${process.env.REACT_APP_API_BASE_URL}` + req.params.endpoint;
   let params = {};
 
+  console.log(endpoint);
+
   for (const [field, value] of Object.entries(req.query)) {
     params[field] = value;
   }
+
+  console.log(params);
 
   axios
     .get(endpoint, {
