@@ -6,7 +6,11 @@ import axios from "axios";
 
 function LoginForm(props) {
   const [showPassword, setShowPassword] = useState(false);
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   function onFormSubmit(data) {
     console.log(data);
@@ -20,7 +24,7 @@ function LoginForm(props) {
     };
 
     let reqOptions = {
-      url:  `${process.env.REACT_APP_NOVI_BACKEND_API_BASE_URL}${process.env.REACT_APP_NOVI_SIGNIN}`,
+      url: `${process.env.REACT_APP_NOVI_BACKEND_API_BASE_URL}${process.env.REACT_APP_NOVI_SIGNIN}`,
       method: "POST",
       headers: headersList,
       data: loginData,
@@ -47,15 +51,27 @@ function LoginForm(props) {
           <input
             type="text"
             placeholder="Enter your user name"
-            {...register("username")}
+            {...register("username", {
+              required: "Gebruikersnaam mag niet leeg zijn",
+              minLength: { value: 6, message: "Minimaal 6 karakters" },
+            })}
           />
         </label>
+        {errors.username && (
+          <span className="login-error-message">
+            {errors.username.message}
+          </span>
+        )}
+
         <label htmlFor="password" className="login-field">
           Password:{" "}
           <input
             type={showPassword ? "text" : "password"}
             placeholder="Enter your password"
-            {...register("password")}
+            {...register("password", {
+              required: true,
+              minLength: { value: 6, message: "Minimaal 6 karakters" },
+            })}
           />
           <i
             onClick={() => {
@@ -69,6 +85,11 @@ function LoginForm(props) {
             )}
           </i>
         </label>
+        {errors.password && (
+          <span className="login-error-message">
+            {errors.password.message}
+          </span>
+        )}
         <button type="submit" className="login-button">
           Login
         </button>

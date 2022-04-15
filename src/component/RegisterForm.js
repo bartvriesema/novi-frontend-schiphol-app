@@ -6,7 +6,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function RegisterForm(props) {
   const [showPassword, setShowPassword] = useState(false);
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   function onFormSubmit(data) {
     console.log(data);
@@ -14,7 +18,6 @@ function RegisterForm(props) {
   }
 
   function registerUser(registerData) {
-
     let headersList = {
       Accept: "*/*",
       "Content-Type": "application/json",
@@ -48,24 +51,45 @@ function RegisterForm(props) {
           <input
             type="text"
             placeholder="Enter your user name"
-            {...register("username")}
+            {...register("username", {
+              required: "Gebruikersnaam mag niet leeg zijn",
+              minLength: { value: 6, message: "Minimaal 6 karakters" },
+            })}
           />
         </label>
+        {errors.username && (
+          <span className="register-error-message">
+            {errors.username.message}
+          </span>
+        )}
+
         <label htmlFor="email" className="login-field">
           E-mail address:{" "}
           <input
-            type="email"
+            type="text"
             placeholder="Enter your e-mail address"
-            {...register("email")}
+            {...register("email", {
+              required: "E-mailadres is verplicht",
+              pattern: {
+                value: /^[a-zA-Z\d.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z\d-]+(?:\.[a-zA-Z\d-]+)*$/,
+                message: "invalid email address",
+              },
+            })}
           />
         </label>
+        {errors.email && (
+          <p className="register-error-message">{errors.email.message}</p>
+        )}
 
         <label htmlFor="password" className="login-field">
           Password:{" "}
           <input
             type={showPassword ? "text" : "password"}
             placeholder="Enter your password"
-            {...register("password")}
+            {...register("password", {
+              required: true,
+              minLength: { value: 6, message: "Minimaal 6 karakters" },
+            })}
           />
           <i
             onClick={() => {
@@ -79,6 +103,12 @@ function RegisterForm(props) {
             )}
           </i>
         </label>
+        {errors.password && (
+          <span className="register-error-message">
+            {errors.password.message}
+          </span>
+        )}
+
         <button type="submit" className="register-button">
           Register
         </button>
