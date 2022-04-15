@@ -9,13 +9,14 @@ function Weather(props) {
   const [weatherData, setWeatherData] = useState({});
 
   async function getWeather() {
-    const weather = await axios.get("http://localhost:5000/weather");
+    const weather = await axios.get(
+      `${process.env.REACT_APP_PROXY_WEATHER_URL}`
+    );
     setWeatherData(weather.data);
   }
 
   async function testBackend() {
-   await axios.get("http://localhost:5000/novi/test/all");
-
+    await axios.get(`${process.env.REACT_APP_NOVI_TEST}`);
   }
 
   useEffect(() => {
@@ -30,7 +31,7 @@ function Weather(props) {
           <h2 className="weather-header">Current weather conditions</h2>
           <img
             className="weather-icon"
-            src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
+            src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
             alt="Weather icon"
           />
           <ul className="weather-list">

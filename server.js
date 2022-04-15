@@ -12,13 +12,13 @@ app.use(
 );
 
 app.get("/", (req, res) => {
-  res.send("Proxy server running");
+  res.send("Proxy server is running");
 });
 
 app.get("/weather", (req, res) => {
   axios
     .get(
-      `https://api.openweathermap.org/data/2.5/weather?lat=52.31&lon=4.7569444444&lang=nl&appid=${process.env.REACT_APP_WEATHER_API_KEY}`
+      `${process.env.REACT_APP_WEATHER_API_URL}${process.env.REACT_APP_WEATHER_API_KEY}`
     )
     .then((response) => {
       res.json(response.data);

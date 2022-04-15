@@ -3,8 +3,10 @@ import React, { useEffect, useState } from "react";
 import toDateTimeString from "../helpers/toDateTimeString";
 import "./Flights.css";
 import FlightsChart from "./FlightsChart";
+import Loading from "./Loading";
 
 function Flights(props) {
+  const [isLoading, toggleLoading] = useState(true);
   const [flightData, setFlightData] = useState([]);
   let departures = [];
   let arrivals = [];
@@ -18,6 +20,7 @@ function Flights(props) {
     if (nextPageUrl) {
       return flights.concat(await getFlightData(nextPageUrl));
     } else {
+      toggleLoading(!isLoading);
       return flights;
     }
   }
@@ -84,13 +87,15 @@ function Flights(props) {
       `http://localhost:5000/schiphol/flights?includedelays=false&page=0&sort=%2BscheduleTime&fromDateTime=${startDateTime}&toDateTime=${endDateTime}&searchDateTimeField=scheduleDateTime`
     )
       .then((response) => setFlightData(response))
-      .catch((e) => console.error(e))
-      .finally(setArrivalsDepartures);
+      .then(setArrivalsDepartures)
+      .catch((e) => console.error(e));
   }, []);
 
   return (
     <>
-      {(arrivals || departures) && (
+      {isLoading && <Loading />}
+
+      {!isLoading && (
         <div className="flights-container">
           SchipholHome component
           <FlightsChart
