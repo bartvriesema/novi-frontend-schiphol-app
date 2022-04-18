@@ -6,8 +6,8 @@ import "./Homepage.css";
 function Homepage(props) {
   return (
     <div className="homepage-container">
-      <Weather />
       <Flights />
+      <Weather />
     </div>
   );
 }

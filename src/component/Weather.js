@@ -16,17 +16,15 @@ function Weather(props) {
     return weather;
   }
 
-  async function testBackend() {
-    const backend = await axios.get(`${process.env.REACT_APP_NOVI_TEST}`);
-    return backend;
-  }
-
   useEffect(() => {
     getWeather().then((response) => {
       setWeatherData(response.data);
       toggleLoading(!isLoading);
     });
-    testBackend().then((response) => console.log(response.data));
+    async function testBackend() {
+      await axios.get(`${process.env.REACT_APP_NOVI_TEST}`);
+    }
+    testBackend().catch(console.error);
   }, []);
 
   return (

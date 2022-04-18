@@ -8,7 +8,6 @@ async function getFlightData(flightDataUrl) {
   if (nextPageUrl) {
     return flights.concat(await getFlightData(nextPageUrl));
   } else {
-    console.log(flights);
     return flights;
   }
 }

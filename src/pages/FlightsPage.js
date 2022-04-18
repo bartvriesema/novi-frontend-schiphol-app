@@ -1,19 +1,28 @@
-import React from "react";
+import React, { useContext } from "react";
 import Flights from "../component/Flights";
 import FlightsFilter from "../component/FlightsFilter";
 import Weather from "../component/Weather";
 import "./FlightsPage.css";
+import { LoginContext } from "../context/LoginProvider";
+import NotFoundPage from "./NotFoundPage";
 
 function FlightsPage(props) {
+  const { isLogin } = useContext(LoginContext);
+
   return (
-    <div className="flightspage-container">
-      <Weather />
-      <div>
-        <h1>Flights page</h1>
-        <Flights className="flight-container" />
-      </div>
-      <FlightsFilter className="flight-filter-container" />
-    </div>
+    <>
+      {!isLogin && <NotFoundPage />}
+
+      {isLogin && (
+        <div className="flightspage-container">
+          <div>
+            <h1>Flights page</h1>
+            <Flights className="flight-container" />
+          </div>
+          <Weather />
+        </div>
+      )}
+    </>
   );
 }
 
