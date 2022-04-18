@@ -7,21 +7,26 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Weather(props) {
   const [weatherData, setWeatherData] = useState({});
+  const [isLoading, toggleLoading] = useState(true);
 
   async function getWeather() {
     const weather = await axios.get(
       `${process.env.REACT_APP_PROXY_WEATHER_URL}`
     );
-    setWeatherData(weather.data);
+    return weather;
   }
 
   async function testBackend() {
-    await axios.get(`${process.env.REACT_APP_NOVI_TEST}`);
+    const backend = await axios.get(`${process.env.REACT_APP_NOVI_TEST}`);
+    return backend;
   }
 
   useEffect(() => {
-    getWeather();
-    testBackend();
+    getWeather().then((response) => {
+      setWeatherData(response.data);
+      toggleLoading(!isLoading);
+    });
+    testBackend().then((response) => console.log(response.data));
   }, []);
 
   return (

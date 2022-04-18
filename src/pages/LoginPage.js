@@ -5,7 +5,7 @@ import LoginForm from "../component/LoginForm";
 import RegisterForm from "../component/RegisterForm";
 
 function Login(props) {
-  const [showLogin, toggleShowLogin] = useState(false);
+  const [showLogin, toggleShowLogin] = useState(true);
 
   return (
     <div className="login-page-container">
@@ -14,13 +14,14 @@ function Login(props) {
         {showLogin && (
           <>
             <LoginForm />
-            <div>Test</div>
+            <div onClick={() => toggleShowLogin(!showLogin)}>Registreer gebruiker</div>
+
           </>
         )}
         {!showLogin && (
           <>
             <RegisterForm />
-            <div>Register test</div>
+            <div onClick={() => toggleShowLogin(!showLogin)}>Login gebruiker</div>
           </>
         )}
       </div>

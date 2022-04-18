@@ -1,11 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./LoginForm.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import { LoginContext } from "../context/LoginProvider";
+import { useNavigate } from "react-router-dom";
 
 function LoginForm(props) {
   const [showPassword, setShowPassword] = useState(false);
+  const { toggleLogin } = useContext(LoginContext);
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -13,7 +18,6 @@ function LoginForm(props) {
   } = useForm();
 
   function onFormSubmit(data) {
-    console.log(data);
     loginUser(data);
   }
 
@@ -34,7 +38,8 @@ function LoginForm(props) {
       .request(reqOptions)
       .then((response) => {
         localStorage.setItem("token", response.data.accessToken);
-        console.log(response.data);
+        toggleLogin(true);
+        navigate("/flights");
         // Forward user to logged in page
       })
       .catch((error) => {
@@ -58,9 +63,7 @@ function LoginForm(props) {
           />
         </label>
         {errors.username && (
-          <span className="login-error-message">
-            {errors.username.message}
-          </span>
+          <span className="login-error-message">{errors.username.message}</span>
         )}
 
         <label htmlFor="password" className="login-field">
@@ -86,9 +89,7 @@ function LoginForm(props) {
           </i>
         </label>
         {errors.password && (
-          <span className="login-error-message">
-            {errors.password.message}
-          </span>
+          <span className="login-error-message">{errors.password.message}</span>
         )}
         <button type="submit" className="login-button">
           Login
