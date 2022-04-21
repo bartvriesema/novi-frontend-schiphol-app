@@ -1,13 +1,13 @@
 import React from "react";
 import "./Checkbox.css";
 
-function Checkbox(props) {
-  return (
-    <div>
-      <input type="checkbox" id={props.key} defaultChecked={props.value} />
-      <label htmlFor="checkbox">{props.description}</label>
-    </div>
-  );
+function Checkbox({description, key, value}) {
+    return (
+        <div>
+            <input type="checkbox" id={key} defaultChecked={value}/>
+            <label htmlFor="checkbox">{description}</label>
+        </div>
+    );
 }
 
 export default Checkbox;

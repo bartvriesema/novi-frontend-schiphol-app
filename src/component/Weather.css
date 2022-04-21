@@ -1,32 +1,33 @@
 .weather-container {
-  display: flex;
-  color: rgba(11, 10, 7, 1);
-  background-color: rgba(99, 210, 255, 0.1);
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-basis: auto;
-  border-radius: 10px;
-  min-width: 200px;
-  min-height: 50px;
-  padding: 10px;
+    display: flex;
+    color: rgba(11, 10, 7, 1);
+    background-color: rgba(99, 210, 255, 0.1);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-basis: auto;
+    border-radius: 10px;
+    min-width: 200px;
+    min-height: 50px;
+    padding: 10px;
 }
 
 .weather-list {
-  list-style: none;
-  padding: 5px;
-  font-size: 1em;
+    list-style: none;
+    padding: 5px;
+    font-size: 1em;
 }
+
 .weather-list li {
-  padding: 5px;
+    padding: 5px;
 }
 
 .weather-header {
-  font-family: "Kite One", sans-serif;
-  font-size: 18px;
+    font-family: "Kite One", sans-serif;
+    font-size: 18px;
 }
 
 .weather-icon {
-  margin-right: auto;
-  margin-left: auto;
+    margin-right: auto;
+    margin-left: auto;
 }

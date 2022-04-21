@@ -1,37 +1,34 @@
-import React, { useEffect, useState } from "react";
+import React, {useState} from "react";
 import "./FlightsFilter.css";
 import FlightsChart from "./FlightsChart";
 import Checkbox from "./Checkbox";
 
-function FlightsFilter(props) {
-  const filterType = new Set(props.activeFilter.map((item) => item.type));
+function FlightsFilter({activeFilter, flightData}) {
+    const filterType = new Set(activeFilter.map((item) => item.type));
+    const filterSet = [...filterType];
+    const [useFilter, toggleUseFilter] = useState(false);
 
-  useEffect(() => {
-    console.log("Use effect started");
-    console.log(filterType);
-  }, []);
+    return (<>
+        <FlightsChart flightData={flightData}/>
+        <div className="flightsfilter-container">
+            <h1>Flights filter</h1>
 
-  return (
-    <>
-      <FlightsChart flightData={props.flightData} />
-      <div className="flightsfilter-container">
-        <h1>Flights filter</h1>
+            {filterSet.map((type) => {
+                return (<>
+                    <h2>{type}</h2>
+                    {activeFilter.map((item) => {
+                        if (type === item.type) {
+                            return (<Checkbox key={item.key} value={item.value} description={item.description}/>);
+                        }
+                    })}
+                </>)
+            })}
 
-        {/* {filterType.forEach((key) => {
-          props.activeFilter.map((filterOption) => {
-            if (filterOption.type === key) {
-              console.log("isTrue" + key + filterOption.type);
-              return (
-                <div>
-                  {key}
-                <div/>
-              );
-            }
-          });
-        })} */}
-      </div>
-    </>
-  );
+
+        </div>
+    </>);
 }
 
+
 export default FlightsFilter;
+
