@@ -3,13 +3,15 @@ import toDateTimeString from "../helpers/toDateTimeString";
 import "./Flights.css";
 import FlightsChart from "./FlightsChart";
 import Loading from "./Loading";
-import getFlightData from "../helpers/flightData";
+import getFlightData from "../helpers/getFlightData";
 import FlightsFilter from "./FlightsFilter";
 import { useLocation } from "react-router-dom";
+import filterCategory from "../helpers/filterCategories";
 
 function Flights(props) {
   const [isLoading, toggleLoading] = useState(true);
   const [flightData, setFlightData] = useState([]);
+  const [activeFilter, setActiveFilter] = useState(filterCategory);
   const currentPath = useLocation();
   let currentDateTime = new Date();
 
@@ -24,7 +26,7 @@ function Flights(props) {
     });
 
     const url = `${process.env.REACT_APP_PROXY_BASE_URL}?${urlParams}`;
-
+    console.log(activeFilter);
     getFlightData(url)
       .then((response) => {
         setFlightData(response);
@@ -44,7 +46,11 @@ function Flights(props) {
             <FlightsChart flightData={flightData} />
           )}
           {currentPath.pathname === "/flights" && (
-            <FlightsFilter flightData={flightData} />
+            <FlightsFilter
+              activeFilter={activeFilter}
+              setActiveFilter={setActiveFilter}
+              flightData={flightData}
+            />
           )}
         </div>
       )}
