@@ -1,10 +1,19 @@
-import React from "react";
+import React, {useState} from "react";
 import "./Checkbox.css";
 
-function Checkbox({description, key, value}) {
+function Checkbox({description, filter, value, handleChange}) {
+    const [checked, toggleChecked] = useState(value)
+    const filterKey = filter;
+
+    function toggleCheckbox() {
+        toggleChecked(!checked);
+        handleChange(filterKey);
+    }
+
+
     return (
         <div>
-            <input type="checkbox" id={key} defaultChecked={value}/>
+            <input type="checkbox" name={filter} defaultChecked={checked} onChange={() => toggleCheckbox()}/>
             <label htmlFor="checkbox">{description}</label>
         </div>
     );
