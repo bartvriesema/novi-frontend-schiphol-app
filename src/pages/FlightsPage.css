@@ -14,3 +14,25 @@
 .flights-filter-container {
     flex-grow: 1;
 }
+
+@media screen and (min-width: 576px) {
+}
+
+@media screen and (min-width: 992px) {
+    .flightspage-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        column-gap: 40px;
+    }
+
+    .flights-container {
+        display: flex;
+        flex-basis: auto;
+        flex-grow: 1;
+    }
+
+    .flights-filter-container {
+        flex-grow: 1;
+    }
+}

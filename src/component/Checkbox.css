@@ -2,3 +2,18 @@
     list-style: none;
     padding-bottom: 5px;
 }
+
+
+@media screen and (min-width: 576px) {
+    .checkbox-item {
+        list-style: none;
+        padding-bottom: 5px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .checkbox-item {
+        list-style: none;
+        padding-bottom: 5px;
+    }
+}

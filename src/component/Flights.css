@@ -1,15 +1,28 @@
 .flights-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.flights-container p {
+  padding: 0 5px 0 5px;
+}
+
+@media screen and (min-width: 576px) {
+}
+
+@media screen and (min-width: 992px) {
+  .flights-container {
     display: flex;
     flex-direction: column;
-}
+  }
 
-.flights-text {
+  .flights-text {
+  }
 
-}
-
-.flights-chart {
+  .flights-chart {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
+  }
 }

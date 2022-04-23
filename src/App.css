@@ -1,10 +1,34 @@
-.page-container {
-    margin: 20px 40px 20px 40px;
-    padding: 20px;
-    border-radius: 20px;
+:root {
+  --vivid-sky-blue: #63d2ffff;
+  --ghost-white: #ecebf3ff;
+  --smoky-black: #0b0a07ff;
+  --flame: #cf5c36ff;
+  --green-blue-crayola: #2081c3ff;
 }
 
 a {
-    text-decoration: none;
-    color: inherit;
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+  margin-block: 0 0;
+  margin-inline: 0 0;
+  padding-inline-start: 0;
+}
+
+body {
+  width: 100%;
+}
+
+@media screen and (min-width: 576px) {
+}
+
+@media screen and (min-width: 992px) {
+  .page-container {
+    margin: 20px 40px 20px 40px;
+    padding: 20px;
+    border-radius: 20px;
+  }
 }

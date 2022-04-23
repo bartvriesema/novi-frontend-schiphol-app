@@ -3,5 +3,23 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 90%;
+    margin: 10px auto 10px auto;
+}
+
+.chart p {
+    margin: 5px 0 5px 0;
+}
+
+@media screen and (min-width: 576px) {
+}
+
+@media screen and (min-width: 992px) {
+  .chart {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 500px;
+  }
 }

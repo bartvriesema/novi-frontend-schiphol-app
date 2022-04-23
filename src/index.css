@@ -4,3 +4,9 @@ body {
     font-family: "Oxygen", sans-serif;
     background-color: RGBA(236, 235, 243, 1);
 }
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}

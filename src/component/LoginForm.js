@@ -63,7 +63,7 @@ function LoginForm(props) {
           />
         </label>
         {errors.username && (
-          <span className="loginpage-error-message">{errors.username.message}</span>
+          <span className="login-page-error-message">{errors.username.message}</span>
         )}
 
         <label htmlFor="password" className="login-field">
@@ -89,7 +89,7 @@ function LoginForm(props) {
           </i>
         </label>
         {errors.password && (
-          <span className="loginpage-error-message">{errors.password.message}</span>
+          <span className="login-page-error-message">{errors.password.message}</span>
         )}
         <button type="submit" className="login-register-button">
           Login

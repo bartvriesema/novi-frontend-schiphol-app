@@ -78,7 +78,7 @@ function RegisterForm(props) {
           />
         </label>
         {errors.email && (
-          <p className="loginpage-error-message">{errors.email.message}</p>
+          <p className="login-page-error-message">{errors.email.message}</p>
         )}
 
         <label htmlFor="password" className="login-field">
@@ -104,7 +104,7 @@ function RegisterForm(props) {
           </i>
         </label>
         {errors.password && (
-          <span className="loginpage-error-message">
+          <span className="login-page-error-message">
             {errors.password.message}
           </span>
         )}

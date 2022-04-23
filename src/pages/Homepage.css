@@ -1,5 +1,18 @@
 .homepage-container {
     display: flex;
-    flex-direction: row;
-    column-gap: 40px;
+    flex-direction: column;
+
+}
+
+
+@media screen and (min-width: 576px) {
+}
+
+@media screen and (min-width: 992px) {
+    .homepage-container {
+        display: flex;
+        flex-direction: row;
+        column-gap: 40px;
+    }
+
 }
