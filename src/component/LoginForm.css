@@ -1,6 +1,9 @@
-.login-error-message {
-    color: #cf5c36;
-    border: #cf5c36;
-    font-size: 0.6em;
-    margin: 2px;
+.form-container {
+    display: flex;
+    color: RGBA(11, 10, 7, 1);
+    flex-direction: column;
+    margin: 20px;
+    justify-content: center;
+    align-items: start;
+    flex-grow: 2;
 }

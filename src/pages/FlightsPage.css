@@ -8,7 +8,7 @@
 .flights-container {
     display: flex;
     flex-basis: auto;
-    flex-grow: 3;
+    flex-grow: 1;
 }
 
 .flights-filter-container {

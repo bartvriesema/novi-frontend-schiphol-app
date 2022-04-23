@@ -1,3 +1,15 @@
 .flights-container {
     display: flex;
+    flex-direction: column;
+}
+
+.flights-text {
+
+}
+
+.flights-chart {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
 }

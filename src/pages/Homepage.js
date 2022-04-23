@@ -4,12 +4,12 @@ import Weather from "../component/Weather";
 import "./Homepage.css";
 
 function Homepage(props) {
-    return (
-        <div className="homepage-container">
-            <Flights/>
-            <Weather/>
-        </div>
-    );
+  return (
+    <div className="homepage-container">
+      <Flights />
+      <Weather />
+    </div>
+  );
 }
 
 export default Homepage;
