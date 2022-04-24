@@ -1,18 +1,6 @@
 .flightspage-container {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    column-gap: 40px;
-}
-
-.flights-container {
-    display: flex;
-    flex-basis: auto;
-    flex-grow: 1;
-}
-
-.flights-filter-container {
-    flex-grow: 1;
+    flex-direction: column;
 }
 
 @media screen and (min-width: 576px) {
@@ -24,15 +12,5 @@
         flex-direction: row;
         justify-content: space-between;
         column-gap: 40px;
-    }
-
-    .flights-container {
-        display: flex;
-        flex-basis: auto;
-        flex-grow: 1;
-    }
-
-    .flights-filter-container {
-        flex-grow: 1;
     }
 }

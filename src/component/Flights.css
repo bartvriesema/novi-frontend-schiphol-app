@@ -1,28 +1,46 @@
 .flights-container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
-.flights-container p {
-  padding: 0 5px 0 5px;
+.flights-text {
+    font-size: 14px;
+}
+
+.flights-text h1 {
+    font-size: 18px;
+}
+
+.flights-text p {
+    padding: 5px;
 }
 
 @media screen and (min-width: 576px) {
+    .flights-text {
+        font-size: 15px;
+    }
+
+    .flights-text h1 {
+        font-size: 20px;
+    }
+
+    .flights-text p {
+        padding: 5px;
+    }
 }
 
 @media screen and (min-width: 992px) {
-  .flights-container {
-    display: flex;
-    flex-direction: column;
-  }
+    .flights-text {
+        font-size: 16px;
+    }
 
-  .flights-text {
-  }
+    .flights-text h1 {
+        font-size: 24px;
+    }
 
-  .flights-chart {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
+    .flights-chart {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
 }

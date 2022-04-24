@@ -1,19 +1,21 @@
-.checkbox-item {
+.checkbox-entry {
+    font-size: 10px;
     list-style: none;
-    padding-bottom: 5px;
+    padding: 2px 0 2px 5px;
 }
 
+.checkbox-item {
+    margin-right: 3px;
+}
 
 @media screen and (min-width: 576px) {
-    .checkbox-item {
-        list-style: none;
-        padding-bottom: 5px;
+    .checkbox-entry {
+        font-size: 12px;
     }
 }
 
 @media screen and (min-width: 992px) {
-    .checkbox-item {
-        list-style: none;
-        padding-bottom: 5px;
+    .checkbox-entry {
+        font-size: 14px;
     }
 }

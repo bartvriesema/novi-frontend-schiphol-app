@@ -1,34 +1,46 @@
 :root {
-  --vivid-sky-blue: #63d2ffff;
-  --ghost-white: #ecebf3ff;
-  --smoky-black: #0b0a07ff;
-  --flame: #cf5c36ff;
-  --green-blue-crayola: #2081c3ff;
+    --vivid-sky-blue: rgb(99, 210, 255);
+    --ghost-white: rgb(236, 235, 243);
+    --smoky-black: rgb(11, 10, 7);
+    --flame: rgb(207, 92, 54);
+    --green-blue-crayola: rgb(32, 129, 195);
+    --vivid-sky-blue-transparant: rgba(99, 210, 255, 0.2)
 }
 
 a {
-  text-decoration: none;
-  color: inherit;
+    text-decoration: none;
+    color: inherit;
 }
 
 ul {
-  list-style: none;
-  margin-block: 0 0;
-  margin-inline: 0 0;
-  padding-inline-start: 0;
+    list-style: none;
+    margin-block: 0 0;
+    margin-inline: 0 0;
+    padding-inline-start: 0;
 }
 
 body {
-  width: 100%;
+    width: 100%;
+}
+
+.page-container {
+    margin: 30px 5px 10px 5px;
+    padding: 20px;
+    border-radius: 20px;
 }
 
 @media screen and (min-width: 576px) {
+    .page-container {
+        margin: 30px 5px 10px 5px;
+        padding: 20px;
+        border-radius: 20px;
+    }
 }
 
 @media screen and (min-width: 992px) {
-  .page-container {
-    margin: 20px 40px 20px 40px;
-    padding: 20px;
-    border-radius: 20px;
-  }
+    .page-container {
+        margin: 20px 40px 20px 40px;
+        padding: 20px;
+        border-radius: 20px;
+    }
 }

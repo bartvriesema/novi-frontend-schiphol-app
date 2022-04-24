@@ -12,14 +12,17 @@
 }
 
 @media screen and (min-width: 576px) {
+    .chart {
+        width: 75%;
+    }
 }
 
 @media screen and (min-width: 992px) {
-  .chart {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 500px;
-  }
+    .chart {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 70%;
+    }
 }
