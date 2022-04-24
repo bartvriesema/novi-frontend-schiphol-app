@@ -3,7 +3,7 @@ import Flights from "../component/Flights";
 import Weather from "../component/Weather";
 import "./Homepage.css";
 
-function Homepage(props) {
+function Homepage() {
   return (
     <div className="homepage-container">
       <Flights />

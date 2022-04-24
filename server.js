@@ -7,7 +7,7 @@ require("dotenv").config();
 
 app.use(
   cors({
-    origin: `${process.env.REACT_APP_API_CORS_ALLOWED}`,
+    origin: `${process.env.REACT_APP_API_CORS_ALLOWED}`
   })
 );
 
@@ -57,9 +57,9 @@ app.get("/schiphol/:endpoint([\\/\\w\\.-]*)", (req, res) => {
         Accept: "application/json",
         app_id: `${process.env.REACT_APP_API_ID}`,
         app_key: `${process.env.REACT_APP_API_KEY}`,
-        ResourceVersion: "v4",
+        ResourceVersion: "v4"
       },
-      params: params,
+      params: params
     })
     .then((response) => {
       // Both the data and headers contain information that needs to be returned

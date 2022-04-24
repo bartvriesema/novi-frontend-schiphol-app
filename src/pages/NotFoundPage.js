@@ -1,7 +1,7 @@
 import React from "react";
 import "./NotFoundPage.css";
 
-function NotFound(props) {
+function NotFound() {
   return (
     <div className="notfound-container">
       <h1>Error 404</h1>

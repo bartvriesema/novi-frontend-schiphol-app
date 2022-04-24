@@ -12,8 +12,9 @@ function Checkbox({ description, filter, value, handleChange }) {
 
 
   return (
-    <li key={description} className="checkbox-item">
-      <input type="checkbox" name={filter} defaultChecked={checked} onChange={() => toggleCheckbox()} />
+    <li key={description} className="checkbox-entry">
+      <input className="checkbox-item" type="checkbox" name={filter} defaultChecked={checked}
+             onChange={() => toggleCheckbox()} />
       <label htmlFor="checkbox">{description}</label>
     </li>
   );

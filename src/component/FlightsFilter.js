@@ -18,40 +18,35 @@ function FlightsFilter({ activeFilter, flightData }) {
     });
     setCurrentFilter([...activeFilter]);
     setUseFilter();
-
   }
 
-  function filterData(flightData) {
-    const filteredData = [];
-    flightData.forEach((flight) => {
-      activeFilter.forEach((filterOption) => {
-        if (filterOption.value) {
-          if (filterOption.filter === flight.serviceType) {
-            if (!filteredData.includes(flight)) {
-              filteredData.push(flight);
+  function filterData(data) {
+    if (useFilter) {
+      const tempData = [];
+      data.forEach((flight) => {
+        activeFilter.forEach((filterOption) => {
+          if (filterOption.value) {
+            if (filterOption.filter === flight.serviceType || filterOption.filter === flight.route.eu) {
+              if (!tempData.includes(flight)) {
+                tempData.push(flight);
+              }
             }
           }
-          if (filterOption.filter === flight.route.eu) {
-            if (!filteredData.includes(flight)) {
-              filteredData.push(flight);
-            }
-          }
-        }
+        });
       });
-    });
-
-    return filteredData;
+      return tempData;
+    }
+    return data;
   }
 
   function setUseFilter() {
-    for (let i = 0; i < currentFilter.length; i++) {
-      if (currentFilter[i].value) {
+    for (const item of currentFilter) {
+      if (item.value) {
         toggleUseFilter(true);
         break;
       }
       toggleUseFilter(false);
     }
-
   }
 
   useEffect(() => {
@@ -65,32 +60,32 @@ function FlightsFilter({ activeFilter, flightData }) {
 
   return (
     <>
-
       <div className="flightsfilter-container">
         <h2>Flights filter</h2>
 
         {filterSet.map((type) => {
           return (
-            <>
+            <div className="flightsfilter-type-list">
               <h3>{type}</h3>
-              {activeFilter.map((item) => {
-                if (type === item.type) {
-                  return (
-                    <Checkbox
-                      key={item.filter + item.description}
-                      filter={item.filter}
-                      value={item.value}
-                      description={item.description}
-                      handleChange={handleFilterChange}
-                    />
-                  );
-                }
-                return <></>;
-              })}
-            </>
+              <ul>
+                {activeFilter.map((item) => {
+                  if (type === item.type) {
+                    return (
+                      <Checkbox
+                        key={item.id}
+                        filter={item.filter}
+                        value={item.value}
+                        description={item.description}
+                        handleChange={handleFilterChange}
+                      />
+                    );
+                  }
+                  return <></>;
+                })}
+              </ul>
+            </div>
           );
         })}
-
       </div>
       <FlightsChart className="flightsfilter-chart" flightData={filteredData} />
     </>

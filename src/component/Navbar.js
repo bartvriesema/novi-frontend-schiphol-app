@@ -5,7 +5,7 @@ import airplaneIcon from "../assets/airplane-logo.svg";
 import "./Navbar.css";
 import { LoginContext } from "../context/LoginProvider";
 
-function Navbar(props) {
+function Navbar() {
   const { isLogin, toggleLogin } = useContext(LoginContext);
 
   function logOut() {

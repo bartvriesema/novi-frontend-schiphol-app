@@ -5,7 +5,7 @@ import kelvinToCelsius from "../helpers/kelvinToCelsius";
 import toTimeString from "../helpers/toTimeString";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-function Weather(props) {
+function Weather() {
   const [weatherData, setWeatherData] = useState({});
   const [isLoading, toggleLoading] = useState(true);
 

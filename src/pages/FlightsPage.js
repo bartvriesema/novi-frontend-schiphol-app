@@ -14,9 +14,7 @@ function FlightsPage() {
 
       {isLogin && (
         <div className="flightspage-container">
-          <div>
-            <Flights className="flight-container" />
-          </div>
+          <Flights />
           <Weather />
         </div>
       )}
