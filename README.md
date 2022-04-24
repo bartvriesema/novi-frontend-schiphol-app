@@ -3,7 +3,7 @@
 Als eindopdracht voor mijn bootcamp Software Development bij Novi Hogeschool heb ik een webapp ontwikkeld in React. Deze
 webapp haalt informatie op bij de Schiphol API en toont deze vluchten aan de gebruiker. De Schiphol API kan gratis
 gebruikt worden om actuele vluchtinformatie op te halen.\
-Voor het registeren van gebruikers en het afhandelen van het inloggen wordt gebruik gemaakt van de standaard door Novi
+Voor het registreren van gebruikers en het afhandelen van het inloggen wordt gebruik gemaakt van de standaard door Novi
 Hogeschool aangeboden backend. Daarnaast wordt ook gebruik gemaakt van de OpenWeather API om actuele weersinformatie van
 Schiphol op te halen.
 
@@ -40,8 +40,8 @@ Om de webapp lokaal te kunnen gebruiken kunnen de volgende stappen gevolgd worde
 
 # Applicatiehandleiding
 * De homepage geeft de huidige vluchten van en naar Schiphol weer in een tijdvak van 2 uur.
-* Via de Login pagina kan ingelogd worden of een account aangemaakt worden.
-* Voor het aanmaken van een account is een unieke gebruikersnaam, uniek e-mailadres en wachtwoord nodig.
+* Via de Login pagina kan ingelogd worden of een account aangemaakt worden. Er zijn geen standaard accounts beschikbaar.
+* Voor het aanmaken van een account is een unieke gebruikersnaam, uniek e-mailadres en wachtwoord nodig. 
 * Na het aanmaken van een account kan ingelogd worden in de webapp.
 * Via de Flights pagina kan gefilterd worden in de vluchten van het tijdvak van 2 uur.
 * Indien geen filter geselecteerd is, worden alle vluchten getoond.
